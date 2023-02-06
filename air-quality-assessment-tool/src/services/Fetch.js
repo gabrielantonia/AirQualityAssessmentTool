@@ -10,6 +10,5 @@ export async function getCityData(city) {
             return response.data;
         }
     } catch (error) {
-        return (error);
     }
 }
