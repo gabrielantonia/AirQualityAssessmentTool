@@ -20,10 +20,17 @@
   6.       Is easily used by the general public 
   
   ## Installation 
-  The user should clone the repository from GitHub and download Node. Project was built with NPM 18.x. Navigate to project directory, verify proper NPM version, issue command to compile:
+  The user should clone the repository from GitHub and download Node. Project was built with NPM 18.x. Navigate to project directory, verify proper NPM version, issue command to compile test build:
 ```
   npm update
   npm start
+```
+Production build: 
+```
+ npm update
+ npm run build
+ npm install -g serve
+ serve -s build
 ```
   ## Usage 
   1. navigate to http://localhost:3000/
