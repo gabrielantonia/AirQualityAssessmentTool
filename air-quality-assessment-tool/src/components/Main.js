@@ -6,6 +6,7 @@ import HeaderComponent from "./Header";
 import {getCityData} from "../services/Fetch";
 import {DynamicForm} from "@mui/icons-material";
 import axios from "axios";
+import Result from "./Result";
 
 export default function MainComponent() {
     const [result, setResult] = useState({
@@ -29,14 +30,7 @@ export default function MainComponent() {
         <form onSubmit={handleSubmit}>
             <input value={city} type='text' required={true} placeholder='Enter City Name' onChange={handleChange}/>
             <button type='submit'> Compare</button>
-            {result &&
-                <ul>
-                    <li>{result.city}</li>
-                    <li>{result.country}</li>
-                    {/*{stations.map(station => <div key={station}> {station} </div>)*/}
-                    {result.measurements.map( measure => <li key={measure}>Parameter: {measure.parameter}, Unit: {measure.unit}, Value: {measure.value}</li>)}
-                </ul>
-            }
+            <Result resultData={result}></Result>
         </form>
     </Paper>)
 
