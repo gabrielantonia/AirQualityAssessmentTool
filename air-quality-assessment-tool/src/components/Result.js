@@ -16,9 +16,8 @@ export default function ResultComponent({resultData}) {
                 <ListItem>{result.city}</ListItem>
                 <ListItem>{result.country}</ListItem>
                 {result.measurements.length > 0 &&
-                    result.measurements.map(measure => <ListItem style={{background: "aqua"}} key={measure}>Parameter: {measure.parameter},
-                        Unit: {measure.unit},
-                        Value: {measure.value}</ListItem>)}
+                    result.measurements.map(measure => <ListItem style={{background: "aqua"}} key={measure}>{measure.parameter + ": "}
+                        {measure.value + " " + measure.unit} </ListItem>)}
             </List>
         </Card>
 
