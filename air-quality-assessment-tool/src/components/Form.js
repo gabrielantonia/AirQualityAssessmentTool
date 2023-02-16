@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Result from "./Result";
 import {getCityData} from "../services/Fetch";
-import {Card} from "@mui/material";
+import {Button, Card, TextField} from "@mui/material";
 
 export default function Form() {
     const [result, setResult] = useState({
@@ -25,9 +25,9 @@ export default function Form() {
         setCity(target.value);
     };
 
-    return (<form onSubmit={handleSubmit}>
-            <input value={city} type='text' required={true} placeholder='Enter City Name' onChange={handleChange}/>
-            <button type='submit'> Submit</button>
+    return (<form style={{}} onSubmit={handleSubmit}>
+            <TextField value={city} type={"text"} required={true} placeholder={"Enter City Name"} onChange={handleChange}/>
+            <Button variant={"contained"} type={"submit"}>Submit</Button>
             {result && <Result resultData={result}></Result>}
             {error && <Card>{error}</Card>}
         </form>)

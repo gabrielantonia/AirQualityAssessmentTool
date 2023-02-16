@@ -1,4 +1,5 @@
 import {useEffect, useState} from "react";
+import {Card, List, ListItem} from "@mui/material";
 
 export default function ResultComponent({resultData}) {
     const [result, setResult] = useState({
@@ -10,11 +11,16 @@ export default function ResultComponent({resultData}) {
     }, [resultData])
 
     return (
-        <ul>
-            <li>{result.city}</li>
-            <li>{result.country}</li>
-            {result.measurements.map(measure => <li key={measure}>Parameter: {measure.parameter}, Unit: {measure.unit},
-                Value: {measure.value}</li>)}
-        </ul>
+        <Card>
+            <List>
+                <ListItem>{result.city}</ListItem>
+                <ListItem>{result.country}</ListItem>
+                {result.measurements.length > 0 &&
+                    result.measurements.map(measure => <ListItem style={{background: "aqua"}} key={measure}>Parameter: {measure.parameter},
+                        Unit: {measure.unit},
+                        Value: {measure.value}</ListItem>)}
+            </List>
+        </Card>
+
     )
 }
